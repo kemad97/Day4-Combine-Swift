@@ -27,7 +27,7 @@ class ViewController: UIViewController {
         URLSession.shared.dataTaskPublisher(for: url)
             .map(\.data)
             .decode(type: [News].self, decoder: JSONDecoder())
-           // .receive(on: DispatchQueue.main)
+            .receive(on: DispatchQueue.main)
             .sink(receiveCompletion: { completion in
                 switch completion {
                 case .finished:
